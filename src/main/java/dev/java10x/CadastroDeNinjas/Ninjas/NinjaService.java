@@ -25,4 +25,9 @@ private NinjaRepository ninjarepository;
         Optional<NinjaModel> ninjaPorId = ninjarepository.findById(id);
         return ninjaPorId.orElse(null);
     }
+
+    // Criar um novo ninja
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjarepository.save(ninja);
+    }
 }
