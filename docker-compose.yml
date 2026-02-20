@@ -9,3 +9,16 @@ services:
       - .env
     ports:
       - "5431:5432"
+
+  app:
+    image: cadastro-ninjas
+    container_name: ninjas-app
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ninjas
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
